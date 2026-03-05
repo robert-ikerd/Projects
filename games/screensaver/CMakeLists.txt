@@ -1,6 +1,7 @@
 add_executable(ScreenSaver src/main.cpp)
 
 target_link_libraries(ScreenSaver PRIVATE 
+    graphics
     SDL3::SDL3-shared
 )
 

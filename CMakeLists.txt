@@ -14,5 +14,6 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SDL3)
 
+add_subdirectory(packages/graphics)
 # add_subdirectory(packages/physics)
 add_subdirectory(games/screensaver)

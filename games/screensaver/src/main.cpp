@@ -1,5 +1,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+#include <graphics/shapes.h>
+
 
 int main(int argc, char* argv[]) {
     if (!SDL_Init(SDL_INIT_VIDEO)) {
@@ -29,6 +31,10 @@ int main(int argc, char* argv[]) {
         // Clear to a nice "macOS Space Gray"
         SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255);
         SDL_RenderClear(renderer);
+
+        int w, h;
+        SDL_GetWindowSize(window, &w, &h);
+        Graphics::DrawCircle(renderer, w / 2.0f, h / 2.0f, 100.0f);
         SDL_RenderPresent(renderer);
     }
 
