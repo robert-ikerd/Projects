@@ -1,6 +1,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <graphics/shapes.h>
+#include <graphics/colors.h>
 
 
 int main(int argc, char* argv[]) {
@@ -27,14 +28,13 @@ int main(int argc, char* argv[]) {
                 running = false;
             }
         }
-
-        // Clear to a nice "macOS Space Gray"
-        SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255);
+        Graphics::Color backgroundColor = Graphics::Colors::White;
+        SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
         SDL_RenderClear(renderer);
 
         int w, h;
         SDL_GetWindowSize(window, &w, &h);
-        Graphics::DrawCircle(renderer, w / 2.0f, h / 2.0f, 100.0f);
+        Graphics::DrawCircle(renderer, Graphics::Colors::Red, w / 2.0f, h / 2.0f, 100.0f);
         SDL_RenderPresent(renderer);
     }
 

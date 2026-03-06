@@ -1,5 +1,6 @@
 add_library(graphics STATIC 
     src/shapes.cpp
+    src/colors.cpp
 )
 
 target_include_directories(graphics PUBLIC include/)
