@@ -11,14 +11,22 @@ arcade() {
     local CMD=$1
     local GAME=$2
 
+    if [[ -z "$GAME" && ("$CMD" == "build" || "$CMD" == "play") ]]; then
+        echo "❌ Error: Please specify a game name (arcade play cartpole)"
+        return 1
+    fi
+
     case "$CMD" in
         build)
+            echo "--- Building $GAME ---"
             cmake --build "$ROOT/build" --target "$GAME"
             ;;
         play)
-            cmake --build "$ROOT/build" --target "$GAME" && \
-            cmake --install "$ROOT/build" --component "$GAME" --prefix "$ROOT/bin" && \
-            "$ROOT/bin/$GAME" 
+            # 1. Build the game
+            # 2. Run the .app bundle directly from the build/games directory
+            arcade build "$GAME" && \
+            echo "--- Launching $GAME ---" && \
+            "$ROOT/build/games/$GAME/$GAME.app/Contents/MacOS/$GAME"
             ;;
         *)
             echo "Usage: arcade {build|play} {game_name}"
