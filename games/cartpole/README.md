@@ -1,1 +1,1 @@
-Sample game to test graphics and physics engine
+Easy implementation of the cartpole game

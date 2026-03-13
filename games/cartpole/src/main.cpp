@@ -1,7 +1,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
-#include <graphics/shapes.h>
 #include <graphics/colors.h>
+#include <graphics/2d/shapes.h>
 
 
 int main(int argc, char* argv[]) {
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 
         int w, h;
         SDL_GetWindowSize(window, &w, &h);
-        Graphics::DrawCircle(renderer, Graphics::Colors::Red, w / 2.0f, h / 2.0f, 100.0f);
+        Graphics::DrawRectangle(renderer, Graphics::Colors::Red, w / 2.0f, h / 2.0f, 100.0f, 100.0f);
         SDL_RenderPresent(renderer);
     }
 
