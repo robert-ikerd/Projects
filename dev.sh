@@ -22,8 +22,6 @@ arcade() {
             cmake --build "$ROOT/build" --target "$GAME"
             ;;
         play)
-            # 1. Build the game
-            # 2. Run the .app bundle directly from the build/games directory
             arcade build "$GAME" && \
             echo "--- Launching $GAME ---" && \
             "$ROOT/build/games/$GAME/$GAME.app/Contents/MacOS/$GAME"
@@ -34,7 +32,6 @@ arcade() {
     esac
 }
 
-# Optional: Add autocompletion for game names
 _arcade_autocomplete() {
     local ROOT=$(_get_root)
     if [[ -d "$ROOT/games" ]]; then
