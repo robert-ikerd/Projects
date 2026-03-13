@@ -1,1 +1,3 @@
-A collection of projects to help me learn C++
+A bare bones game engine alongside some games and hopefully AI to help me learn C++
+
+
