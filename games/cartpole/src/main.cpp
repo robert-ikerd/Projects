@@ -34,7 +34,15 @@ int main(int argc, char* argv[]) {
 
         int w, h;
         SDL_GetWindowSize(window, &w, &h);
-        Graphics::DrawRectangle(renderer, Graphics::Colors::Red, w / 2.0f, h / 2.0f, 100.0f, 100.0f);
+        std::array<Graphics::Vertex, 3> triPoints = {
+            Graphics::Vertex(w / 2.0f, h / 2.0f - 50.0f),
+            Graphics::Vertex(w / 2.0f - 50.0f, h / 2.0f + 50.0f),
+            Graphics::Vertex(w / 2.0f + 50.0f, h / 2.0f + 50.0f)
+        };
+        Graphics::Triangle object1 = Graphics::Triangle(Graphics::Colors::Red, triPoints);
+        object1.rotate(90.0f);
+
+        object1.draw(renderer);
         SDL_RenderPresent(renderer);
     }
 
